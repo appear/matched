@@ -8,7 +8,8 @@
     "paths": {
       "$pages/*": ["pages/*"],
       "$pages": ["pages/index"],
-      "$components/*": ["components/*"]
+      "$components/*": ["components/*"],
+      "$shared/*": ["components/shared/*"]
     },
     "moduleResolution": "node",
     "strict": true,

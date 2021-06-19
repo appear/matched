@@ -3,6 +3,9 @@ import App, { AppInitialProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 
+import Header from '$shared/Header'
+import ResetCSS from '$shared/ResetCSS'
+
 type AppProps = AppInitialProps
 
 export default class Page extends App<AppProps> {
@@ -64,6 +67,8 @@ export default class Page extends App<AppProps> {
             content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"
           />
         </Head>
+        <ResetCSS />
+        <Header />
         <Component {...pageProps} />
       </>
     )
