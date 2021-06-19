@@ -9,7 +9,8 @@
       "$pages/*": ["pages/*"],
       "$pages": ["pages/index"],
       "$components/*": ["components/*"],
-      "$shared/*": ["components/shared/*"]
+      "$shared/*": ["components/shared/*"],
+      "$icons/*": ["assets/icons/*"]
     },
     "moduleResolution": "node",
     "strict": true,
