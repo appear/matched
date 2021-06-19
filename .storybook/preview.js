@@ -1,5 +1,16 @@
-
+import {INITIAL_VIEWPORTS, DEFAULT_VIEWPORT} from '@storybook/addon-viewport'
 import ResetCSS from '../src/components/shared/ResetCSS'
+
+const customViewport = {
+  galaxyFold: {
+      name: 'PC',
+      styles: {
+          height: '653px',
+          width: '1280px',
+      },
+      type: 'pc',
+  },
+}
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,6 +21,10 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
+  viewport: {
+    viewports: {...INITIAL_VIEWPORTS, ...customViewport},
+    defaultViewport: DEFAULT_VIEWPORT,
+},
 }
 
 
