@@ -1,0 +1,26 @@
+{
+  "name": "matched",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "lint:fix": "eslint --fix",
+    "prettier": "prettier --check \"./**/*.{json,yaml,md}\"",
+    "prettier:fix": "prettier --write \"./**/*.{json,yaml,md}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appear/matched.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/appear/matched/issues"
+  },
+  "homepage": "https://github.com/appear/matched#readme",
+  "devDependencies": {
+    "eslint-config-olaf": "^0.0.1"
+  }
+}
