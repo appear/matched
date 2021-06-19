@@ -1,19 +1,13 @@
 const { APP_PROFILES = 'real' } = process.env
-const basePath = '/'
 
 const publicRuntimeConfig = {
-  BASE_PATH: basePath,
-  PUBLIC_PATH: basePath,
   APP_PROFILES,
 }
 
 module.exports = {
   env: publicRuntimeConfig,
   publicRuntimeConfig,
-  basePath,
-  future: {
-    webpack5: true,
-  },
+  webpack5: true,
   generateEtags: true,
   webpack: ({ entry: originalEntry, plugins, ...restConfig }, { webpack }) => ({
     ...restConfig,
