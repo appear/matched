@@ -13,7 +13,8 @@
     "start": "next start -p 3333",
     "dev": "cross-env APP_PROFILES=local next dev -p 3333",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/appear/matched/issues"
   },
-  "homepage": "https://github.com/appear/matched#readme",
+  "homepage": "http://appear.github.io/matched",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@storybook/addon-actions": "^6.2.9",
@@ -42,6 +43,7 @@
     "csstype": "^3.0.7",
     "eslint-config-next": "^11.0.0",
     "eslint-config-olaf": "^0.0.1",
+    "gh-pages": "^3.2.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.5.4",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
