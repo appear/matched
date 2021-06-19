@@ -9,7 +9,13 @@ export default {
 export const 기본 = () => {
   return (
     <Modal isShow={true}>
-      <div>HEllo</div>
+      <div
+        style={{
+          padding: 200,
+        }}
+      >
+        모달 테스트
+      </div>
     </Modal>
   )
 }
