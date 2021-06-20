@@ -10,7 +10,9 @@
       "$pages": ["pages/index"],
       "$components/*": ["components/*"],
       "$shared/*": ["components/shared/*"],
-      "$icons/*": ["assets/icons/*"]
+      "$icons/*": ["assets/icons/*"],
+      "$queries/*": ["queries/*"],
+      "$utils/*": ["utils/*"]
     },
     "moduleResolution": "node",
     "strict": true,
