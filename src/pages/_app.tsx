@@ -7,6 +7,7 @@ import { ApolloProvider } from '@apollo/client'
 import api from '$utils/api'
 import Header from '$shared/Header'
 import ResetCSS from '$shared/ResetCSS'
+import { UserContextProvider } from '$contexts/user'
 
 type AppProps = AppInitialProps
 
@@ -71,8 +72,10 @@ export default class Page extends App<AppProps> {
         </Head>
         <ResetCSS />
         <ApolloProvider client={api}>
-          <Header />
-          <Component {...pageProps} />
+          <UserContextProvider>
+            <Header />
+            <Component {...pageProps} />
+          </UserContextProvider>
         </ApolloProvider>
       </>
     )

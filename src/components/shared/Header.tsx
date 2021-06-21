@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import SigninButton from '$components/home/SigninButton'
+
 const Container = styled.div`
   background-color: #000000;
   height: 50px;
@@ -63,7 +65,7 @@ function Header() {
           <Text bold newBadge>
             프로젝트 개설
           </Text>
-          <Text>로그인</Text>
+          <SigninButton />
         </RightContainer>
       </InnerContainer>
     </Container>

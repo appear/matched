@@ -69,10 +69,12 @@ interface ButtonModalProps {
   onClose: (e: React.SyntheticEvent) => void
   buttons: {
     id: string
-    label: string
+    name: string
   }[]
-  checkedButtons: string[]
+  checkedIds: string[]
   submitLabel?: string
+  onClick: (e: React.SyntheticEvent, id: string) => void
+  onSubmit: (e: React.SyntheticEvent) => void
 }
 
 function ButtonModal({
@@ -81,8 +83,10 @@ function ButtonModal({
   isShow,
   onClose,
   buttons,
-  checkedButtons,
+  checkedIds,
   submitLabel = '선택완료',
+  onClick,
+  onSubmit,
 }: ButtonModalProps) {
   return (
     <Modal isShow={isShow} onClose={onClose}>
@@ -92,13 +96,17 @@ function ButtonModal({
           <SubTitle>{subTitle}</SubTitle>
         </Header>
         <ButtonContainer>
-          {buttons.map(({ id, label }) => (
-            <Button key={id} checked={checkedButtons.includes(id)}>
-              {label}
+          {buttons.map(({ id, name }) => (
+            <Button
+              key={id}
+              checked={checkedIds.includes(id)}
+              onClick={(e) => onClick(e, id)}
+            >
+              {name}
             </Button>
           ))}
         </ButtonContainer>
-        <SubmitButton>{submitLabel}</SubmitButton>
+        <SubmitButton onClick={onSubmit}>{submitLabel}</SubmitButton>
       </Conatiner>
     </Modal>
   )
