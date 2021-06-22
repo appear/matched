@@ -10,7 +10,6 @@
       "$pages": ["pages/index"],
       "$components/*": ["components/*"],
       "$shared/*": ["components/shared/*"],
-      "$icons/*": ["assets/icons/*"],
       "$queries/*": ["queries/*"],
       "$utils/*": ["utils/*"],
       "$contexts/*": ["contexts/*"],
