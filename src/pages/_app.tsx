@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Router from 'next/router'
 import { ApolloProvider } from '@apollo/client'
 
+import AppContainer from '$shared/AppContainer'
 import api from '$utils/api'
 import Header from '$shared/Header'
 import ResetCSS from '$shared/ResetCSS'
@@ -74,7 +75,9 @@ export default class Page extends App<AppProps> {
         <ApolloProvider client={api}>
           <UserContextProvider>
             <Header />
-            <Component {...pageProps} />
+            <AppContainer>
+              <Component {...pageProps} />
+            </AppContainer>
           </UserContextProvider>
         </ApolloProvider>
       </>
