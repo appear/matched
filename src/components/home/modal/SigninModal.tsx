@@ -27,7 +27,7 @@ const mock: User = {
   updatedAt: '2021-06-20',
 }
 
-function SigninModal({ isShow, onClose, onSignup }: SigninModalProps) {
+function SigninModal({ isShow, onSignup }: SigninModalProps) {
   function handleClickSignup() {
     return onSignup(mock)
   }

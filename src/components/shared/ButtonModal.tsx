@@ -88,7 +88,7 @@ function ButtonModal({
 }: ButtonModalProps) {
   const [checkedIds, setCheckedIds] = useState<string[]>(initialCheckedIds)
 
-  function handleCheckedIds(_, checkedId: string) {
+  function handleCheckedIds(_: React.SyntheticEvent, checkedId: string) {
     if (checkedIds.includes(checkedId)) {
       setCheckedIds(checkedIds.filter((id) => id !== checkedId))
       return

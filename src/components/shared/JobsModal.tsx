@@ -1,3 +1,4 @@
+import React from 'react'
 import { useQuery } from '@apollo/client'
 
 import ButtonModal from '$shared/ButtonModal'
@@ -11,7 +12,7 @@ interface JobsModalProps {
 function JobsModal({ checkedIds, onChange }: JobsModalProps) {
   const { data } = useQuery(GET_JOBS)
 
-  function handleSubmit(_, checkedIds: string[]) {
+  function handleSubmit(_: React.SyntheticEvent, checkedIds: string[]) {
     onChange(checkedIds)
   }
 

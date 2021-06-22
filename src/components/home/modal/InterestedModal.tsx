@@ -27,9 +27,9 @@ function SigninStepModal() {
     })
   }
 
-  function handleSignupCompleted() {
-    console.log(interestedValues)
-  }
+  // function handleSignupCompleted() {
+  //   console.log(interestedValues)
+  // }
 
   if (!interestedValues.interestedDomains.length) {
     return <JobsModal onChange={handleInterestedDomains} />
