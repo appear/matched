@@ -239,4 +239,6 @@ export default createGlobalStyle`
     textarea {
         resize: vertical;
     }
+
+    a {color: #fff; text-decoration: none; outline: none}
 `

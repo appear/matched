@@ -9,6 +9,7 @@ const Container = styled.div<{ backgroundColor: string; color: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-bottom: 7px;
