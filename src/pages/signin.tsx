@@ -46,6 +46,7 @@ const TermsContainer = styled.div`
 
 const TermsLink = styled.a`
   cursor: pointer;
+  color: #a6a6a6;
   text-decoration: underline;
   text-decoration-color: #d2d0d0;
 `
