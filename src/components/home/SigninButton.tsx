@@ -4,11 +4,10 @@ import { useUserContext } from '$contexts/user'
 import { User } from '$types/user'
 
 import SigninModal from './modal/SigninModal'
-import InterestedModal from './modal/InterestedModal'
 
 function SigninButton() {
   const [isShowSigninModal, setIsShowSigninModal] = useState(false)
-  const { user, setUser } = useUserContext()
+  const { setUser } = useUserContext()
 
   function handleShowSigninModal() {
     setIsShowSigninModal(true)
@@ -31,7 +30,6 @@ function SigninButton() {
         onClose={handleCloseSigninModal}
         onSignup={handleSignupUser}
       />
-      {user !== null && !user.isCompleted && <InterestedModal />}
     </>
   )
 }

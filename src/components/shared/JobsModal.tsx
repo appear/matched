@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { useQuery } from '@apollo/client'
 
 import ButtonModal from '$shared/ButtonModal'
@@ -10,27 +8,10 @@ interface JobsModalProps {
   onChange: (checkedIds: string[]) => void
 }
 
-function JobsModal({
-  checkedIds: initialCheckedIds,
-  onChange,
-}: JobsModalProps) {
-  const [checkedIds, setCheckedIds] = useState<string[]>(
-    initialCheckedIds || [],
-  )
+function JobsModal({ checkedIds, onChange }: JobsModalProps) {
   const { data } = useQuery(GET_JOBS)
 
-  function handleCheckedIds(_, checkedId: string) {
-    if (checkedIds.includes(checkedId)) {
-      setCheckedIds(checkedIds.filter((id) => id !== checkedId))
-      return
-    }
-
-    if (checkedIds.length < 2) {
-      setCheckedIds([...checkedIds, checkedId])
-    }
-  }
-
-  function handleSubmit() {
+  function handleSubmit(_, checkedIds: string[]) {
     onChange(checkedIds)
   }
 
@@ -40,8 +21,7 @@ function JobsModal({
       onClose={() => null}
       isShow={true}
       buttons={data?.GetJobs?.jobs || []}
-      checkedIds={checkedIds}
-      onClick={handleCheckedIds}
+      initialCheckedIds={checkedIds}
       onSubmit={handleSubmit}
     />
   )
