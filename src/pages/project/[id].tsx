@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Image from '$shared/Image'
 import EmptyHeart from '$components/assets/icons/EmptyHeart'
 import Share from '$components/assets/icons/Share'
+import Project from '$components/home/Project'
 
 const temp = `"누구나 아름다워질 수 있는 기회를 제공한다!" \n\n\n\n'피부과, 거기 돈 많은 사람들만 가는거 아니야?' 라고 생각하셨죠? \n\n여신티켓은 데이터와 IT기술을 통해 메디컬 뷰티 시장을 선도하는 피부시술 정보앱 입니다.\n정보의 비대칭이 심한 피부시술 마켓에서,여신티켓은 투명한 시술 정보와 후기를 어디서든 쉽게 확인하고, 실제 결제와 예약까지 모바일에서 가능한 유일한! 서비스입니다.\n누적 50억+ 투자를 받았으며, 매년 200% 이상 안정적이고 빠르게 성장하고 있습니다.\n우리 여신티켓팀은 하루하루 새로운 도전과 혁신을 만들어내고 있습니다.\n얼마 남지 않은 자리, 어서 여신로켓에 올라타세요!\n\n\n[패스트레인 소개]\n• 패스트레인 둘러보기 : https://bit.ly/3aK1CKb\n• 여신티켓 사이트 : https://yeoshin.co.kr/\n• 여신티켓 유튜브 : https://url.kr/4kx5pr\n\n\n[관련 기사]\n• 패스트레인 손승우 대표님 인터뷰 : https://bit.ly/2JpioTR\n• 여신티켓, 드라마·광고 접수한 ‘배우 강한나’ 첫 전속 모델 발탁 : https://bit.ly/2JujVrO\n• 피부시술정보플랫폼 여신티켓, 35억 규모 시리즈 A 투자 유치 : https://bit.ly/3rwR4UF\n• 여신티켓, IMM인베서 16억 원 브릿지 투자 유치 : https://bit.ly/2WPONpO`
 
@@ -254,6 +255,7 @@ function ProjectPage() {
           </UserContainer>
         </FooterContainer>
       </SideContainer>
+      <Project />
     </Container>
   )
 }

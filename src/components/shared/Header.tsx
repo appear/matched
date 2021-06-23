@@ -6,6 +6,10 @@ import HeaderLogo from '$components/assets/icons/HeaderLogo'
 const Container = styled.div`
   background-color: #000000;
   height: 50px;
+
+  * a {
+    color: #fff;
+  }
 `
 
 const InnerContainer = styled.div`

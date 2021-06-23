@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import Banner from '$components/home/Banner'
 import RecommendUsersCarousel from '$components/home/RecommendUsersCarousel'
-import RecommendUsersCarousel2 from '$components/home/RecommendUsersCarousel2'
-import RecommendUsersCarousel3 from '$components/home/RecommendUsersCarousel3'
+import Project from '$components/home/Project'
 
 const Container = styled.div`
   max-width: 960px;
@@ -18,8 +17,8 @@ function Index() {
       <Banner />
       <Container>
         <RecommendUsersCarousel />
-        <RecommendUsersCarousel2 />
-        <RecommendUsersCarousel3 />
+        <Project />
+        <Project />
       </Container>
     </div>
   )

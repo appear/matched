@@ -240,5 +240,5 @@ export default createGlobalStyle`
         resize: vertical;
     }
 
-    a {color: #fff; text-decoration: none; outline: none}
+    a {color: #000; text-decoration: none; outline: none}
 `
