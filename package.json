@@ -9,9 +9,9 @@
     "prettier": "prettier --check \"./**/*.{json,yaml,md}\"",
     "prettier:fix": "prettier --write \"./**/*.{json,yaml,md}\"",
     "build": "cross-env APP_PROFILES=real next build",
-    "build:local": "cross-env APP_PROFILES=local next build",
+    "build:local": "cross-env APP_PROFILES=development next build",
     "start": "next start -p 3333",
-    "dev": "cross-env APP_PROFILES=local next dev -p 3333",
+    "dev": "cross-env APP_PROFILES=development next dev -p 3333",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static"
