@@ -1,6 +1,6 @@
 import { User } from './user'
 
-export interface SignupMutationArgs {
+export interface SigninMutationArgs {
   user: {
     email: string
     provider: User['provider']
@@ -10,8 +10,8 @@ export interface SignupMutationArgs {
   }
 }
 
-export interface SignupMutationResponse {
-  SignUp: {
+export interface SigninMutationResponse {
+  Signin: {
     status: number
     token: string
     user: User

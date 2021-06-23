@@ -18,7 +18,8 @@
       "$types/*": ["types/*"],
       "$hooks/*": ["hooks/*"],
       "$config": ["config/index"],
-      "$config/*": ["config/*"]
+      "$config/*": ["config/*"],
+      "$constants/*": ["constants/*"]
     },
     "moduleResolution": "node",
     "strict": true,

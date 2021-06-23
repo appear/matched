@@ -1,0 +1,1 @@
+export const MATCHED_SESSION_KEY = 'X-MATCHED-TOKEN'

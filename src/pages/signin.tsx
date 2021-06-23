@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import GoogleButton from '$components/signin/social/GoogleButton'
 import NaverButton from '$components/signin/social/NaverButton'
 import KakaoButton from '$components/signin/social/KakaoButton'
-import { SignupMutationResponse } from '$types/sign'
+import { SigninMutationResponse } from '$types/sign'
 
 const Container = styled.div`
   display: flex;
@@ -53,10 +53,15 @@ const TermsLink = styled.a`
 `
 
 function SigninPage() {
-  function handleCompletedSignin(response: SignupMutationResponse) {
-    const { SignUp } = response
+  function handleCompletedSignin(response: SigninMutationResponse) {
+    const { Signin } = response
 
-    console.log(SignUp.token)
+    if (Signin.status === 403) {
+      window.alert('중복된 이메일입니다')
+      return
+    }
+
+    console.log(Signin.token)
   }
 
   return (
@@ -67,7 +72,7 @@ function SigninPage() {
       <SocialButtonContainer>
         <GoogleButton />
         <NaverButton />
-        <KakaoButton onCompletedSignup={handleCompletedSignin} />
+        <KakaoButton onCompletedSignin={handleCompletedSignin} />
       </SocialButtonContainer>
       <TermsContainer>
         소셜 로그인으로 가입 시 <TermsLink>이용약관</TermsLink>,{' '}

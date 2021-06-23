@@ -1,23 +1,23 @@
 import { useMutation } from '@apollo/client'
 
 import useAsyncLoadKakaoSDK from '$hooks/useAsyncLoadKakaoSDK'
-import { SIGNUP } from '$mutations/user'
-import { SignupMutationArgs, SignupMutationResponse } from '$types/sign'
+import { SIGNIN } from '$mutations/user'
+import { SigninMutationArgs, SigninMutationResponse } from '$types/sign'
 
 import Button from './Button'
 
 interface KakaoButtonProps {
-  onCompletedSignup: (response: SignupMutationResponse) => void
+  onCompletedSignin: (response: SigninMutationResponse) => void
 }
 
-function KakaoButton({ onCompletedSignup }: KakaoButtonProps) {
+function KakaoButton({ onCompletedSignin }: KakaoButtonProps) {
   useAsyncLoadKakaoSDK()
 
-  const [signup] = useMutation<SignupMutationResponse, SignupMutationArgs>(
-    SIGNUP,
+  const [signin] = useMutation<SigninMutationResponse, SigninMutationArgs>(
+    SIGNIN,
     {
       onCompleted: (response) => {
-        onCompletedSignup(response)
+        onCompletedSignin(response)
       },
     },
   )
@@ -39,7 +39,7 @@ function KakaoButton({ onCompletedSignup }: KakaoButtonProps) {
               return
             }
 
-            await signup({
+            await signin({
               variables: {
                 user: {
                   email: profile.kakao_account.email,

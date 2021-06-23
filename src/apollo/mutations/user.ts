@@ -2,11 +2,11 @@ import { gql } from '@apollo/client'
 
 import { USER_FRAGMENT } from '$fragments/user'
 
-export const SIGNUP = gql`
+export const SIGNIN = gql`
   ${USER_FRAGMENT}
 
-  mutation Signup($user: SignUpMutationArgs!) {
-    SignUp(user: $user) {
+  mutation Signin($user: SigninMutationArgs!) {
+    Signin(user: $user) {
       status
       token
       user {
