@@ -1,7 +1,39 @@
+import useAsyncLoadKakaoSDK from '$hooks/useAsyncLoadKakaoSDK'
+
 import Button from './Button'
 
 function KakaoButton() {
-  function handleKakaoSignin() {}
+  useAsyncLoadKakaoSDK()
+
+  function handleKakaoSignin() {
+    if (!window.Kakao) {
+      return
+    }
+
+    window.Kakao.Auth.loginForm({
+      throughTalk: true,
+      persistAccessToken: true,
+      success: (response) => {
+        window.Kakao?.API.request({
+          url: '/v2/user/me',
+          success: (profile) => {
+            if (!profile.kakao_account.email) {
+              throw new Error('CHECK EMAIL')
+            }
+
+            const result = { response, profile }
+            console.log(result)
+          },
+          fail: (e) => {
+            console.log(e)
+          },
+        })
+      },
+      fail: (e) => {
+        console.log(e)
+      },
+    })
+  }
 
   return (
     <Button
