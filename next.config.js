@@ -1,7 +1,8 @@
-const { APP_PROFILES = 'real' } = process.env
+const { APP_PROFILES = 'real', KAKAO_SDK_KEY } = process.env
 
 const publicRuntimeConfig = {
   APP_PROFILES,
+  KAKAO_SDK_KEY,
 }
 
 module.exports = {
