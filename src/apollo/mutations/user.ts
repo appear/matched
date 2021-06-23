@@ -1,6 +1,10 @@
-import gql from 'graphql-tag'
+import { gql } from '@apollo/client'
 
-export const SIGNUP = () => gql`
+import { USER_FRAGMENT } from '$fragments/user'
+
+export const SIGNUP = gql`
+  ${USER_FRAGMENT}
+
   mutation Signup($user: SignUpMutationArgs!) {
     SignUp(user: $user) {
       status

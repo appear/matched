@@ -9,7 +9,7 @@ export interface User {
   email: string
   name: string
   about: string
-  provider: 'KAKAO' | 'GOOGLE'
+  provider: 'KAKAO' | 'GOOGLE' | 'NAVER'
   isCompleted: boolean
   isVisible: boolean
   links: string[]

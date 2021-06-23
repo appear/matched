@@ -1,11 +1,28 @@
+import { useMutation } from '@apollo/client'
+
 import useAsyncLoadKakaoSDK from '$hooks/useAsyncLoadKakaoSDK'
+import { SIGNUP } from '$mutations/user'
+import { SignupMutationArgs, SignupMutationResponse } from '$types/sign'
 
 import Button from './Button'
 
-function KakaoButton() {
+interface KakaoButtonProps {
+  onCompletedSignup: (response: SignupMutationResponse) => void
+}
+
+function KakaoButton({ onCompletedSignup }: KakaoButtonProps) {
   useAsyncLoadKakaoSDK()
 
-  function handleKakaoSignin() {
+  const [signup] = useMutation<SignupMutationResponse, SignupMutationArgs>(
+    SIGNUP,
+    {
+      onCompleted: (response) => {
+        onCompletedSignup(response)
+      },
+    },
+  )
+
+  async function handleKakaoSignin() {
     if (!window.Kakao) {
       return
     }
@@ -13,24 +30,34 @@ function KakaoButton() {
     window.Kakao.Auth.loginForm({
       throughTalk: true,
       persistAccessToken: true,
-      success: (response) => {
+      success: () => {
         window.Kakao?.API.request({
           url: '/v2/user/me',
-          success: (profile) => {
+          success: async (profile) => {
             if (!profile.kakao_account.email) {
-              throw new Error('CHECK EMAIL')
+              window.alert('이메일을 필수로 선택해주세요')
+              return
             }
 
-            const result = { response, profile }
-            console.log(result)
+            await signup({
+              variables: {
+                user: {
+                  email: profile.kakao_account.email,
+                  socialId: `${profile.id}`,
+                  name: profile.properties.nickname || '의문의 너구리',
+                  provider: 'KAKAO',
+                  thumbnail: profile.properties.profile_image || '기본이미지',
+                },
+              },
+            })
           },
           fail: (e) => {
-            console.log(e)
+            throw e
           },
         })
       },
       fail: (e) => {
-        console.log(e)
+        throw e
       },
     })
   }

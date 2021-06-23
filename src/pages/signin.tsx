@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import GoogleButton from '$components/signin/social/GoogleButton'
 import NaverButton from '$components/signin/social/NaverButton'
 import KakaoButton from '$components/signin/social/KakaoButton'
+import { SignupMutationResponse } from '$types/sign'
 
 const Container = styled.div`
   display: flex;
@@ -52,6 +53,12 @@ const TermsLink = styled.a`
 `
 
 function SigninPage() {
+  function handleCompletedSignin(response: SignupMutationResponse) {
+    const { SignUp } = response
+
+    console.log(SignUp.token)
+  }
+
   return (
     <Container>
       <HeadingTitle>시작하기</HeadingTitle>
@@ -60,7 +67,7 @@ function SigninPage() {
       <SocialButtonContainer>
         <GoogleButton />
         <NaverButton />
-        <KakaoButton />
+        <KakaoButton onCompletedSignup={handleCompletedSignin} />
       </SocialButtonContainer>
       <TermsContainer>
         소셜 로그인으로 가입 시 <TermsLink>이용약관</TermsLink>,{' '}
