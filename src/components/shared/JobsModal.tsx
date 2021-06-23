@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 
 import ButtonModal from '$shared/ButtonModal'
-import { GET_JOBS } from '$queries/user'
+import { GET_JOBS } from '$queries/job'
 
 interface JobsModalProps {
   checkedIds?: string[]
