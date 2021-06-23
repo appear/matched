@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Modal from './Modal'
@@ -69,10 +69,11 @@ interface ButtonModalProps {
   onClose: (e: React.SyntheticEvent) => void
   buttons: {
     id: string
-    label: string
+    name: string
   }[]
-  checkedButtons: string[]
+  initialCheckedIds?: string[]
   submitLabel?: string
+  onSubmit: (e: React.SyntheticEvent, checkedIds: string[]) => void
 }
 
 function ButtonModal({
@@ -81,9 +82,27 @@ function ButtonModal({
   isShow,
   onClose,
   buttons,
-  checkedButtons,
+  initialCheckedIds = [],
   submitLabel = '선택완료',
+  onSubmit,
 }: ButtonModalProps) {
+  const [checkedIds, setCheckedIds] = useState<string[]>(initialCheckedIds)
+
+  function handleCheckedIds(_: React.SyntheticEvent, checkedId: string) {
+    if (checkedIds.includes(checkedId)) {
+      setCheckedIds(checkedIds.filter((id) => id !== checkedId))
+      return
+    }
+
+    if (checkedIds.length < 2) {
+      setCheckedIds([...checkedIds, checkedId])
+    }
+  }
+
+  function handleSubmit(e: React.SyntheticEvent) {
+    onSubmit(e, checkedIds)
+  }
+
   return (
     <Modal isShow={isShow} onClose={onClose}>
       <Conatiner>
@@ -92,13 +111,17 @@ function ButtonModal({
           <SubTitle>{subTitle}</SubTitle>
         </Header>
         <ButtonContainer>
-          {buttons.map(({ id, label }) => (
-            <Button key={id} checked={checkedButtons.includes(id)}>
-              {label}
+          {buttons.map(({ id, name }) => (
+            <Button
+              key={id}
+              checked={checkedIds.includes(id)}
+              onClick={(e) => handleCheckedIds(e, id)}
+            >
+              {name}
             </Button>
           ))}
         </ButtonContainer>
-        <SubmitButton>{submitLabel}</SubmitButton>
+        <SubmitButton onClick={handleSubmit}>{submitLabel}</SubmitButton>
       </Conatiner>
     </Modal>
   )

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import RecommendHeart from '$icons/RecommendHeart'
-import RecommendEmptyHeart from '$icons/RecommendEmptyHeart'
+import RecommendHeart from '$components/assets/icons/RecommendHeart'
+import RecommendEmptyHeart from '$components/assets/icons/RecommendEmptyHeart'
 
 const Conatiner = styled.div`
   display: flex;
@@ -9,7 +9,6 @@ const Conatiner = styled.div`
   background: #f5f5f5;
   border-radius: 10px;
   padding: 16px 24px;
-  width: 30%;
   position: relative;
 `
 

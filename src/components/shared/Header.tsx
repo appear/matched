@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import Link from 'next/link'
+
+import HeaderLogo from '$components/assets/icons/HeaderLogo'
 
 const Container = styled.div`
   background-color: #000000;
@@ -6,7 +9,7 @@ const Container = styled.div`
 `
 
 const InnerContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1060px;
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
@@ -15,10 +18,16 @@ const InnerContainer = styled.div`
   height: 100%;
 `
 
-const LeftContainer = styled.div``
-const RightContainer = styled.div``
+const LeftContainer = styled.div`
+  display: flex;
+`
 
-const Text = styled.span<{ bold?: boolean; newBadge?: boolean }>`
+const MenuContainer = styled.ul`
+  display: flex;
+  align-items: center;
+`
+
+const Text = styled.li<{ bold?: boolean; newBadge?: boolean; margin?: string }>`
   font-size: 14px;
   color: #ffffff;
   position: relative;
@@ -34,6 +43,7 @@ const Text = styled.span<{ bold?: boolean; newBadge?: boolean }>`
   }
 
   ${({ bold }) => bold && `font-weight: bold;`}
+  ${({ margin }) => margin && `margin: ${margin};`}
 
   ${({ newBadge }) =>
     newBadge &&
@@ -56,15 +66,36 @@ function Header() {
     <Container>
       <InnerContainer>
         <LeftContainer>
-          <Text>카테고리</Text>
-          <Text>카테고리</Text>
+          <Link href="/">
+            <a>
+              <HeaderLogo />
+            </a>
+          </Link>
+          <MenuContainer>
+            <Text margin="0 0 0 45px">
+              <Link href="/category">
+                <a>카테고리</a>
+              </Link>
+            </Text>
+            <Text>
+              <Link href="/category">
+                <a>카테고리</a>
+              </Link>
+            </Text>
+          </MenuContainer>
         </LeftContainer>
-        <RightContainer>
+        <MenuContainer>
           <Text bold newBadge>
-            프로젝트 개설
+            <Link href="/project">
+              <a>프로젝트 개설</a>
+            </Link>
           </Text>
-          <Text>로그인</Text>
-        </RightContainer>
+          <Text>
+            <Link href="/signin">
+              <a>로그인</a>
+            </Link>
+          </Text>
+        </MenuContainer>
       </InnerContainer>
     </Container>
   )

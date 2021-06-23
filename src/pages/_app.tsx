@@ -2,9 +2,12 @@ import React from 'react'
 import App, { AppInitialProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
+import { ApolloProvider } from '@apollo/client'
 
+import api from '$utils/api'
 import Header from '$shared/Header'
 import ResetCSS from '$shared/ResetCSS'
+import { UserContextProvider } from '$contexts/user'
 
 type AppProps = AppInitialProps
 
@@ -68,8 +71,12 @@ export default class Page extends App<AppProps> {
           />
         </Head>
         <ResetCSS />
-        <Header />
-        <Component {...pageProps} />
+        <ApolloProvider client={api}>
+          <UserContextProvider>
+            <Header />
+            <Component {...pageProps} />
+          </UserContextProvider>
+        </ApolloProvider>
       </>
     )
   }
